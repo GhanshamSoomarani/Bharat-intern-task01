@@ -5,7 +5,6 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 body{
-    background: #081b29;
     color:#ededed;
 }
 .header {
@@ -21,12 +20,23 @@ body{
     z-index: 100;
 }
 .logo {
+    position: relative;
     font-size: 25px;
     color: #ededed;
     text-decoration: none;
     font-weight: 600;
 }
-
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s forwards;
+    animation-delay: .4s;
+}
 .navbar a {
     font-size: 18px;
     color: #ededed;
@@ -43,6 +53,9 @@ body{
 
 .home {
     height: 100vh;
+    background: url(man.jpg) no-repeat;
+    background-position: center;
+    background-image: cover;
     display: flex;
     align-items: center;
     padding: 0 10%;
@@ -51,7 +64,18 @@ body{
 .home-content {
     max-width: 600px;
 }
-
+.home-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right : 65px;
+    left : 70px;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    animation: showRight 1s forwards;
+    animation-delay: 1s;
+}
 .home-content h1 {
     font-size: 56px;
     font-weight: 700;
@@ -167,4 +191,26 @@ body{
 
 .home-sci a:hover::before{
     width: 100%;
+}
+
+.home-imghover {
+    position : absolute;
+    top : 0;
+    right : 65px;
+    width: 600px;
+    height : 100%;
+    background: transparent;
+    transition: 3s;
+}
+
+.home-imghover:hover {
+    background: #000;
+    opacity: .8;
+}
+
+@keyframes showRight
+{ 
+    100% {
+        width: 0;
+    }
 }
